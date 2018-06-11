@@ -20,8 +20,8 @@ tab[-1]=0
 print("tab:\n",tab)
 
 dim=3
-data_in = np.random.random((dim*2,dim*2))
-p_data_in = np.random.random((dim,dim*2,dim*2))
+data_in = np.random.random((dim,dim))
+p_data_in = np.random.random((dim,dim,dim))
 print("in:\n",data_in)
 kernel = np.random.random((dim,dim))
 print("kernel:\n",kernel)
@@ -38,7 +38,8 @@ print("%d conv used %f s"%(n,t1))
 
 ##pytorch convolution
 n = 10000
-tensor = torch.tensor(data_in)
+tensor = torch.FloatTensor(data_in)
+tensor = tensor.unsqueeze_(0)
 tensor = tensor.unsqueeze_(0)
 print("tensor:",tensor)
 print("tensor shape:",tensor.size())
