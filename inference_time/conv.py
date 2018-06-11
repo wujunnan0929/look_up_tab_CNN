@@ -43,10 +43,10 @@ tensor = tensor.unsqueeze_(0)
 tensor = tensor.unsqueeze_(0)
 print("tensor:",tensor)
 print("tensor shape:",tensor.size())
+conv1 = nn.Conv2d(1,1,dim,stride=1)
 start = time.time()
 for i in range(0,n):
 	#conv = torch.nn.Conv2d(in_channels=1,out_channels=1,kernel_size=(dim,dim),stride=1,padding=0,dilation=1,groups=1,bias=False)
-	conv1 = nn.Conv2d(1,1,dim,stride=1)
 	out = conv1(tensor)
 end = time.time()
 t2 = end -start
